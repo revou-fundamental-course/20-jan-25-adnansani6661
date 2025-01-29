@@ -1,47 +1,73 @@
-function calculateBMI() {
-    let gender = document.querySelector('input[name="gender"]:checked').value;
+// Menambahkan event listener ke form dan tombol reset
+document.getElementById("form-bmi").addEventListener("submit", hitungBMI);
+document.getElementById("reset-btn").addEventListener("click", resetForm);
+
+// Fungsi untuk menghitung BMI
+function hitungBMI(event) {
+    event.preventDefault();
+
+    // Ambil nilai input dari form
+    let gender = document.getElementById("gender").value;
     let age = document.getElementById("age").value;
-    let height = document.getElementById("height").value;
     let weight = document.getElementById("weight").value;
-    
-    if (age <= 0 || height <= 0 || weight <= 0) {
-        alert("Masukkan data yang valid!");
-        return;
-    }
+    let height = document.getElementById("height").value;
 
-    let bmi = (weight / ((height / 100) ** 2)).toFixed(1);
-    document.getElementById("gender-result").innerText = gender;
-    document.getElementById("bmi-result").innerText = bmi;
+    // Konversi tinggi dari cm ke meter
+    height = height / 100;
 
+    // Hitung BMI
+    let bmi = weight / (height * height);
+    bmi = bmi.toFixed(1);
+
+    // Tampilkan hasil BMI
+    tampilkanHasil(bmi);
+}
+
+// Fungsi untuk menampilkan hasil BMI
+function tampilkanHasil(bmi) {
     let category = "";
-    let description = "";
-    let tips = "";
-    let diagnosis = "";
+    let explanation = "";
+    let diseases = "";
+    let solution = "";
 
     if (bmi < 18.5) {
-        category = "Kurus (Underweight)";
-        description = "Anda memiliki berat badan di bawah normal.";
-        tips = "Perbanyak konsumsi makanan bergizi dan olahraga.";
-        diagnosis = "Berisiko mengalami kekurangan gizi dan sistem imun lemah.";
-    } else if (bmi < 24.9) {
+        category = "Kurus";
+        explanation = "Anda memiliki berat badan di bawah normal.";
+        diseases = "Risiko anemia, kekurangan nutrisi, dan osteoporosis.";
+        solution = "Konsumsi makanan bernutrisi tinggi dan tingkatkan asupan kalori.";
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
         category = "Normal";
-        description = "Berat badan Anda ideal.";
-        tips = "Pertahankan pola makan sehat dan olahraga teratur.";
-        diagnosis = "Risiko penyakit lebih rendah.";
-    } else if (bmi < 29.9) {
-        category = "Gemuk (Overweight)";
-        description = "Anda memiliki berat badan berlebih.";
-        tips = "Kurangi makanan tinggi lemak dan perbanyak aktivitas fisik.";
-        diagnosis = "Berisiko terkena tekanan darah tinggi dan diabetes.";
+        explanation = "Berat badan Anda ideal.";
+        diseases = "Risiko penyakit rendah.";
+        solution = "Tetap jaga pola makan sehat dan olahraga rutin.";
+    } else if (bmi >= 25 && bmi <= 29.9) {
+        category = "Gemuk";
+        explanation = "Anda memiliki berat badan berlebih.";
+        diseases = "Risiko diabetes, tekanan darah tinggi, dan penyakit jantung.";
+        solution = "Kurangi makanan tinggi gula dan lemak, serta rutin berolahraga.";
     } else {
         category = "Obesitas";
-        description = "Anda memiliki berat badan sangat berlebih.";
-        tips = "Konsultasikan ke dokter dan jalani pola hidup sehat.";
-        diagnosis = "Risiko tinggi penyakit jantung, stroke, dan diabetes.";
+        explanation = "Anda memiliki berat badan sangat berlebih.";
+        diseases = "Risiko tinggi diabetes, stroke, penyakit jantung, dan kanker.";
+        solution = "Segera konsultasi ke dokter dan atur pola makan serta olahraga.";
     }
 
-    document.getElementById("bmi-category").innerText = category;
-    document.getElementById("bmi-description").innerText = description;
-    document.getElementById("bmi-tips").innerText = tips;
-    document.getElementById("bmi-diagnosis").innerText = diagnosis;
+    // Tampilkan hasil di HTML
+    document.getElementById("bmi-value").innerText = `BMI: ${bmi}`;
+    document.getElementById("bmi-category").innerText = `Kategori: ${category}`;
+    document.getElementById("bmi-explanation").innerText = `Penjelasan: ${explanation}`;
+    document.getElementById("bmi-diseases").innerText = `${diseases}`;
+    document.getElementById("bmi-solution").innerText = `${solution}`;
+}
+
+// Fungsi untuk mereset form dan hasil BMI
+function resetForm() {
+    document.getElementById("form-bmi").reset();
+
+    // Kosongkan hasil BMI
+    document.getElementById("bmi-value").innerText = "BMI: -";
+    document.getElementById("bmi-category").innerText = "Kategori: -";
+    document.getElementById("bmi-explanation").innerText = "Penjelasan: -";
+    document.getElementById("bmi-diseases").innerText = "-";
+    document.getElementById("bmi-solution").innerText = "-";
 }

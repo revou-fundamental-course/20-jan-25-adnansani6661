@@ -1,0 +1,143 @@
+
+/* Body Styling (Full Screen) */
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+}
+
+/* Layout Full Screen */
+main {
+    width: 100%;
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Section */
+#bmi-form, #bmi-result, #bmi-diseases-section, #bmi-solution-section {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Fieldset Styling */
+fieldset {
+    border: 1px solid cyan;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Label & Input */
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Styling untuk input dan select */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2); /* Default background */
+    color: white;
+    border: none;
+}
+
+/* Styling untuk select jenis kelamin saat dipilih */
+select {
+    background: rgba(0, 255, 255, 0.3); /* Warna latar belakang saat dipilih (cyan) */
+}
+
+/* Styling untuk opsi pada select */
+select option {
+    background-color: #121212; /* Background gelap untuk setiap opsi */
+    color: #fff; /* Warna teks putih pada opsi */
+}
+
+/* Button Styling */
+button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: cyan;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+button:hover {
+    background: white;
+}
+
+/* Hasil Section */
+#bmi-result {
+    margin-top: 20px;
+    color: cyan
+}
+
+#bmi-result p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+/* Styling untuk Potensi Penyakit & Solusi */
+#bmi-diseases-section h2, #bmi-solution-section h2 {
+    color: cyan;
+}
+
+#bmi-diseases, #bmi-solution {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Responsive untuk Mobile */
+@media (max-width: 768px) {
+    main {
+        height: auto;
+        padding: 10px;
+    }
+    
+    #bmi-form, #bmi-result, #bmi-diseases-section, #bmi-solution-section {
+        width: 90%;
+    }
+}
+
+/* Tombol Reset */
+#reset-btn {
+    background: red;
+    color: white;
+}
+
+#reset-btn:hover {
+    background: darkred;
+}
+
+/* Tombol Hitung */
+button[type="submit"] {
+    background: cyan;
+    color: black;
+}
+
+button[type="submit"]:hover {
+    background: white;
+}
