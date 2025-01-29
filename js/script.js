@@ -1,73 +1,65 @@
-// Menambahkan event listener ke form dan tombol reset
-document.getElementById("form-bmi").addEventListener("submit", hitungBMI);
-document.getElementById("reset-btn").addEventListener("click", resetForm);
+// Ambil elemen yang diperlukan
+const bmiform = document.getElementById('bmiform');
+const resultsection = document.getElementById('resultsection');
+const bmresult = document.getElementById('bmresult');
+const bmcategory = document.getElementById('bmcategory');
+const diseasediagnosis = document.getElementById('diseasediagnosis');
+const solution = document.getElementById('solution');
+const resetbtn = document.getElementById('resetbtn');
 
 // Fungsi untuk menghitung BMI
-function hitungBMI(event) {
-    event.preventDefault();
+function calculateBMI(event) {
+    event.preventDefault(); // Mencegah form untuk submit dan reload halaman
 
-    // Ambil nilai input dari form
-    let gender = document.getElementById("gender").value;
-    let age = document.getElementById("age").value;
-    let weight = document.getElementById("weight").value;
-    let height = document.getElementById("height").value;
-
-    // Konversi tinggi dari cm ke meter
-    height = height / 100;
+    // Ambil nilai input
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const age = parseInt(document.getElementById('age').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value) / 100; // Konversi ke meter
 
     // Hitung BMI
-    let bmi = weight / (height * height);
-    bmi = bmi.toFixed(1);
+    const bmi = weight / (height * height);
 
-    // Tampilkan hasil BMI
-    tampilkanHasil(bmi);
-}
-
-// Fungsi untuk menampilkan hasil BMI
-function tampilkanHasil(bmi) {
-    let category = "";
-    let explanation = "";
-    let diseases = "";
-    let solution = "";
+    // Tentukan kategori BMI
+    let category = '';
+    let diagnosis = '';
+    let solutionText = '';
 
     if (bmi < 18.5) {
-        category = "Kurus";
-        explanation = "Anda memiliki berat badan di bawah normal.";
-        diseases = "Risiko anemia, kekurangan nutrisi, dan osteoporosis.";
-        solution = "Konsumsi makanan bernutrisi tinggi dan tingkatkan asupan kalori.";
-    } else if (bmi >= 18.5 && bmi <= 24.9) {
-        category = "Normal";
-        explanation = "Berat badan Anda ideal.";
-        diseases = "Risiko penyakit rendah.";
-        solution = "Tetap jaga pola makan sehat dan olahraga rutin.";
-    } else if (bmi >= 25 && bmi <= 29.9) {
-        category = "Gemuk";
-        explanation = "Anda memiliki berat badan berlebih.";
-        diseases = "Risiko diabetes, tekanan darah tinggi, dan penyakit jantung.";
-        solution = "Kurangi makanan tinggi gula dan lemak, serta rutin berolahraga.";
+        category = 'Kurus';
+        diagnosis = 'Anda memiliki berat badan kurang.';
+        solutionText = 'Disarankan untuk meningkatkan asupan kalori dengan makan lebih banyak dan berfokus pada diet yang seimbang.';
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = 'Normal';
+        diagnosis = 'Berat badan Anda normal.';
+        solutionText = 'Pertahankan gaya hidup sehat dan pola makan seimbang.';
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = 'Overweight (Kelebihan Berat Badan)';
+        diagnosis = 'Anda memiliki kelebihan berat badan.';
+        solutionText = 'Disarankan untuk meningkatkan aktivitas fisik dan memperbaiki pola makan.';
     } else {
-        category = "Obesitas";
-        explanation = "Anda memiliki berat badan sangat berlebih.";
-        diseases = "Risiko tinggi diabetes, stroke, penyakit jantung, dan kanker.";
-        solution = "Segera konsultasi ke dokter dan atur pola makan serta olahraga.";
+        category = 'Obesitas';
+        diagnosis = 'Anda mengalami obesitas.';
+        solutionText = 'Disarankan untuk berkonsultasi dengan ahli gizi dan memulai program penurunan berat badan yang sehat.';
     }
 
-    // Tampilkan hasil di HTML
-    document.getElementById("bmi-value").innerText = `BMI: ${bmi}`;
-    document.getElementById("bmi-category").innerText = `Kategori: ${category}`;
-    document.getElementById("bmi-explanation").innerText = `Penjelasan: ${explanation}`;
-    document.getElementById("bmi-diseases").innerText = `${diseases}`;
-    document.getElementById("bmi-solution").innerText = `${solution}`;
+    // Tampilkan hasil BMI dan kategori
+    bmresult.textContent = `BMI Anda adalah: ${bmi.toFixed(2)}`;
+    bmcategory.textContent = `Kategori: ${category}`;
+    diseasediagnosis.textContent = `Diagnosis: ${diagnosis}`;
+    solution.textContent = `Solusi: ${solutionText}`;
+
+    // Tampilkan section hasil dan scroll ke bagian hasil
+    resultsection.style.display = 'block';
+    resultsection.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Fungsi untuk mereset form dan hasil BMI
+// Fungsi untuk mereset form
 function resetForm() {
-    document.getElementById("form-bmi").reset();
-
-    // Kosongkan hasil BMI
-    document.getElementById("bmi-value").innerText = "BMI: -";
-    document.getElementById("bmi-category").innerText = "Kategori: -";
-    document.getElementById("bmi-explanation").innerText = "Penjelasan: -";
-    document.getElementById("bmi-diseases").innerText = "-";
-    document.getElementById("bmi-solution").innerText = "-";
+    bmiform.reset();
+    resultsection.style.display = 'none'; // Sembunyikan hasil ketika reset
 }
+
+// Event listener untuk form submit dan tombol reset
+bmiform.addEventListener('submit', calculateBMI);
+resetbtn.addEventListener('click', resetForm);

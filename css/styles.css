@@ -1,0 +1,337 @@
+/* Reset dasar dan styling untuk body */
+* {
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #004c4c, #01b8b8); /* Kombinasi biru petronas */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+    background-size: cover;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4); /* Efek bayangan untuk kesan racing */
+    margin-bottom: 20px;
+}
+
+/* Artikel tentang BMI */
+.article {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 900px;
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+    text-align: left;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+    color: #d1d1d1;
+}
+
+/* Keunggulan Website */
+.advantages {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 900px;
+    transition: transform 0.3s ease;
+}
+.advantages:hover {
+    transform: scale(1.05);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #d1d1d1;
+    line-height: 1.6;
+}
+
+li::before {
+    content: '✔️';
+    margin-right: 10px;
+    color: #ffcb00; /* Aksen kuning */
+}
+
+/* Form styling */
+.form-section {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 900px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ffcb00; /* Aksen kuning */
+    box-shadow: 0 0 10px rgba(255, 203, 0, 0.7);
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #004c4c; /* Petronas biru */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #01b8b8; /* Biru petronas terang */
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1);
+}
+/* Styling untuk pilihan jenis kelamin */
+.gender-selection {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start; /* Mengubah untuk rata kiri */
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px; /* Memberi sedikit ruang kiri */
+}
+
+.gender-option {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.gender-option input[type="radio"] {
+    position: absolute;
+    opacity: 0; /* Menyembunyikan radio button asli */
+}
+
+.gender-label {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Efek saat memilih jenis kelamin */
+.gender-option input[type="radio"]:checked + .gender-label {
+    background-color: #ffcb00;
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Hover effect untuk label */
+.gender-label:hover {
+    background-color: #01b8b8;
+    color: #fff;
+}
+
+.gender-option input[type="radio"]:focus + .gender-label {
+    box-shadow: 0 0 10px rgba(0, 203, 255, 0.7); /* Menambah efek saat fokus */
+}
+
+
+.gender-option input[type="radio"]:focus + .gender-label {
+    box-shadow: 0 0 10px rgba(0, 203, 255, 0.7); /* Menambah efek saat fokus */
+}
+
+/* Efek hover untuk elemen input */
+input:hover {
+    /* Mengubah warna border saat elemen input disorot dengan hover */
+    border-color: #ffcb00; /* Menggunakan warna kuning untuk border */
+    
+    /* Menambahkan efek bayangan (shadow) untuk elemen input saat hover */
+    box-shadow: 0 0 10px rgba(255, 203, 0, 0.7); /* Warna kuning dengan transparansi */
+}
+
+/* Hasil Kalkulasi */
+.result-section {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    width: 100%;
+    max-width: 900px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.result-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.result-section p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #d1d1d1;
+}
+
+/* Responsiveness: Menyesuaikan elemen untuk layar kecil */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .article, .advantages, .form-section, .result-section {
+        width: 100%;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    input, button {
+        font-size: 1rem;
+        padding: 12px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+}
+
+/* Responsiveness untuk layar lebih kecil (mobile) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input, button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+    }
+
+    .article, .advantages, .form-section, .result-section {
+        padding: 15px;
+    }
+}
+
+/* Styling untuk label dan radio button */
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+    display: block;
+}
+
+/* Styling untuk input radio button */
+input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.3); /* Membesarkan ukuran radio button */
+    accent-color: #01b8b8; /* Mengubah warna radio button sesuai dengan tema */
+}
+
+/* Styling untuk label radio button (lebih rapi dan teratur) */
+input[type="radio"]:checked + label {
+    color: #ffcb00; /* Memberikan efek highlight ketika radio button dipilih */
+}
+
+/* Styling untuk membuat label radio button sejajar */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    justify-content: left;
+    align-items: left;
+}
