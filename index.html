@@ -3,12 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BMI Kalkulator</title>
     <link rel="stylesheet" href="css/styles.css">
+    
 </head>
-<body>
-    <header>
-        <h1>Kalkulator BMI</h1>
-    </header>
+<body>    
+    <div class="container">
+        <!-- Section Input -->
+        <section class="input-section">
+            <h1>BMI Kalkulator</h1>
+            <p>Masukkan data Anda:</p>
+
+            <div class="input-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <input type="radio" name="gender" id="male" value="Laki-laki" checked>
+                    <label for="male">Laki-laki</label>
+                    <input type="radio" name="gender" id="female" value="Perempuan">
+                    <label for="female">Perempuan</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="age">Usia:</label><br>
+                <input type="number" id="age" placeholder="Masukkan usia Anda">
+            </div>
+
+            <div class="input-group">
+                <label for="height">Tinggi (cm):</label>
+                <input type="number" id="height" placeholder="Masukkan tinggi Anda">
+            </div>
+
+            <div class="input-group">
+                <label for="weight">Berat (kg):</label>
+                <input type="number" id="weight" placeholder="Masukkan berat Anda">
+            </div>
+
+            <button onclick="calculateBMI()">Hitung BMI</button>
+        </section>
+
+        <!-- Section Hasil -->
+        <section class="result-section">
+            <h2>Hasil BMI</h2>
+            <p><strong>Jenis Kelamin:</strong> <span id="gender-result">-</span></p>
+            <p class="bmi-value" id="bmi-result">-</p>
+            <p class="bmi-category" id="bmi-category"></p>
+            <p class="bmi-description" id="bmi-description"></p>
+            <p class="bmi-tips" id="bmi-tips"></p>
+            <p class="bmi-diagnosis" id="bmi-diagnosis"></p>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
