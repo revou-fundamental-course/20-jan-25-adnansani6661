@@ -175,6 +175,14 @@ button:active {
     text-align: center;
     color: #d1d1d1;
 }
+/* Tambahkan styling khusus untuk angka BMI */
+#bmresult {
+    font-size: 2.5rem; /* Ukuran font lebih besar */
+    font-weight: bold; /* Tebalkan angka */
+    color: #00e5ff; /* Ganti warna teks menjadi biru terang */
+    text-align: center; /* Rata tengah */
+    margin: 1px 0; /* Berikan jarak atas dan bawah */
+}
 
 /* Styling untuk pilihan jenis kelamin */
 .gender-selection {
@@ -210,6 +218,67 @@ button:active {
 .gender-option input:checked + span {
     color: #00e5ff;
     font-weight: bold;
+}
+/* Styling untuk label pada jenis kelamin */
+.gender-option {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+input[type="radio"] {
+    display: none; /* Sembunyikan radio button default */
+}
+
+input[type="radio"]:checked + .gender-label {
+    color: #00e5ff; /* Ganti warna label saat dipilih */
+    font-weight: bold;
+}
+
+input[type="radio"]:focus + .gender-label {
+    border: 2px solid #00e5ff; /* Tambahkan border saat fokus */
+    outline: none;
+}
+
+/* Styling untuk label radio button */
+.gender-label {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gender-label:hover {
+    background-color: rgba(0, 229, 255, 0.2); /* Warna latar belakang saat hover */
+}
+
+input[type="radio"]:checked + .gender-label:hover {
+    background-color: rgba(0, 229, 255, 0.3); /* Warna latar belakang saat hover dan terpilih */
+}
+/* Styling untuk section diagnosis dan solusi */
+.diagnosis-section {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    margin-top: 30px;
+    width: 100%;
+    max-width: 900px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.diagnosis-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.diagnosis-section p {
+    font-size: 1rem;
+    text-align: center;
+    color: #d1d1d1;
 }
 
 /* Responsiveness untuk layar lebih kecil */
