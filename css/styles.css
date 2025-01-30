@@ -1,8 +1,16 @@
 /* Reset dasar dan styling untuk body */
 * {
-    margin: 10px;
-    padding: 0;
+    margin: 0;
+    padding: 10px;
     box-sizing: border-box;
+    max-width: 100%;
+    outline: none;
+    border: none;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -13,26 +21,27 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 2px;
     height: 100%;
-    overflow: auto;
     background-size: cover;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 40px;
 }
 
 h1 {
-    font-size: 3.5rem;
+    padding-right: 16px;
+    margin-right: 10px;
+    font-size: 3.5rem ;
     color: #00e5ff;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
 }
 
 /* Artikel dan Keunggulan */
@@ -40,11 +49,11 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 15px;
-    margin-bottom: 40px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     width: 100%;
     max-width: 900px;
     transition: transform 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .article:hover, .advantages:hover {
@@ -65,13 +74,17 @@ p, li {
     color: #d1d1d1;
 }
 
+sup {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 /* Form styling */
 .form-section {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    margin-bottom: 40px;
     width: 100%;
     max-width: 900px;
 }
@@ -81,6 +94,7 @@ form {
     flex-direction: column;
 }
 
+/* Text label */
 label {
     margin-bottom: 10px;
     font-weight: bold;
@@ -89,6 +103,7 @@ label {
     display: block;
 }
 
+/* Text isi label */
 input {
     margin-bottom: 15px;
     padding: 12px;
@@ -107,6 +122,81 @@ input:hover, input:focus {
     outline: none;
 }
 
+/* Styling untuk pilihan jenis kelamin */
+.gender-selection {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.gender-option {
+    display: flex;
+    align-items: center;
+    background-color: #212121;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin-top: -10px;
+}
+
+.gender-option span {
+    color: #fff;
+    font-weight: 500;
+}
+
+.gender-option:hover {
+    background-color: #00e5ff;
+}
+
+.gender-option input:checked + span {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+/* Styling untuk label pada jenis kelamin */
+.gender-option {
+    position: relative;
+}
+
+/* Warna tombol ketika dipilih */
+.gender-option.selected {
+    background-color: #00e5ff;
+}
+
+/* Warna tombol saat hover */
+.gender-option:hover {
+    background-color: #00e5ff;
+}
+
+input[type="button"]:checked + .gender-label {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+input[type="button"]:focus + .gender-label {
+    border: 2px solid #06272b;
+    outline: none;
+}
+
+/* Styling untuk button jenis kelamin */
+.gender-label {
+    display: inline-block;
+    padding: 20px 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gender-label:hover {
+    background-color: rgba(0, 229, 255, 0.2);
+}
+
+input[type="button"]:checked + .gender-label:hover {
+    background-color: rgba(0, 229, 255, 0.3);
+}
+
+/* Tombol hitung */
 button {
     padding: 12px 20px;
     background-color: #00e5ff;
@@ -131,8 +221,8 @@ button:active {
 /* Tombol reset */
 #resetbtn {
     padding: 12px 20px;
-    background-color: #fff; /* Ubah warna tombol menjadi putih */
-    color: #212121; /* Ubah warna teks tombol menjadi gelap */
+    background-color: #fff;
+    color: #212121;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -142,7 +232,7 @@ button:active {
 }
 
 #resetbtn:hover {
-    background-color: #f1f1f1; /* Warna saat hover */
+    background-color: #f1f1f1;
     transform: scale(1.05);
 }
 
@@ -152,12 +242,12 @@ button:active {
 
 /* Hasil Kalkulasi */
 .result-section {
+    margin-top: 10px;
     display: none;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    margin-top: 30px;
     width: 100%;
     max-width: 900px;
     transition: opacity 0.3s ease-in-out;
@@ -175,86 +265,16 @@ button:active {
     text-align: center;
     color: #d1d1d1;
 }
+
 /* Tambahkan styling khusus untuk angka BMI */
 #bmresult {
-    font-size: 2.5rem; /* Ukuran font lebih besar */
-    font-weight: bold; /* Tebalkan angka */
-    color: #00e5ff; /* Ganti warna teks menjadi biru terang */
-    text-align: center; /* Rata tengah */
-    margin: 1px 0; /* Berikan jarak atas dan bawah */
-}
-
-/* Styling untuk pilihan jenis kelamin */
-.gender-selection {
-    display: flex;
-    justify-content: flex-start; /* Memastikan tombol jenis kelamin rata kiri */
-    gap: 20px;
-}
-
-.gender-option {
-    display: flex;
-    align-items: center;
-    background-color: #212121;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.gender-option input {
-    display: none; /* Menyembunyikan radio button */
-}
-
-.gender-option span {
-    color: #fff;
-    font-weight: 500;
-}
-
-.gender-option:hover {
-    background-color: #00e5ff;
-}
-
-.gender-option input:checked + span {
+    font-size: 2.5rem;
+    font-weight: bold;
     color: #00e5ff;
-    font-weight: bold;
-}
-/* Styling untuk label pada jenis kelamin */
-.gender-option {
-    display: inline-block;
-    margin-right: 20px;
-    position: relative;
+    text-align: center;
+    margin: 1px 0;
 }
 
-input[type="radio"] {
-    display: none; /* Sembunyikan radio button default */
-}
-
-input[type="radio"]:checked + .gender-label {
-    color: #00e5ff; /* Ganti warna label saat dipilih */
-    font-weight: bold;
-}
-
-input[type="radio"]:focus + .gender-label {
-    border: 2px solid #00e5ff; /* Tambahkan border saat fokus */
-    outline: none;
-}
-
-/* Styling untuk label radio button */
-.gender-label {
-    display: inline-block;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.gender-label:hover {
-    background-color: rgba(0, 229, 255, 0.2); /* Warna latar belakang saat hover */
-}
-
-input[type="radio"]:checked + .gender-label:hover {
-    background-color: rgba(0, 229, 255, 0.3); /* Warna latar belakang saat hover dan terpilih */
-}
 /* Styling untuk section diagnosis dan solusi */
 .diagnosis-section {
     display: none;
@@ -282,33 +302,47 @@ input[type="radio"]:checked + .gender-label:hover {
 }
 
 /* Responsiveness untuk layar lebih kecil */
-@media screen and (max-width: 375px) {
-    body {
-        padding: 10px;
+/*Tablet*/
+@media screen and (max-width: 758px) {
+    html {
+        width: 100%;
+        overflow-x: hidden;
     }
-    
+    body {
+        width: 100%;
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
     h1 {
+        font-size: 75%;
         font-size: 2.2rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
     }
-    
+
     .article, .advantages, .form-section, .result-section {
         padding: 15px;
     }
-    
+
     input, button {
         padding: 10px;
         font-size: 0.9rem;
     }
-    
+
     button {
         font-size: 1rem;
     }
-    
+
     .gender-selection {
         flex-direction: column;
+    }
+    /*HP*/
+    @media screen and (max-width: 375px){
+    h1 {
+        font-size: 55%;
+        font-size: 2.2rem;
     }
 }

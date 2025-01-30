@@ -16,53 +16,51 @@
         <!-- Artikel tentang BMI -->
         <article class="article">
             <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang penampilan, 
-                berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu</p>
+                berat badan ideal juga menandakan kondisi tubuh yang sehat.</p>
         </article>
 
         <!-- Keunggulan Website -->
         <aside class="advantages">
-            <h2>Feature Information</h2>
-            <ul>
-                <li>Desain modern dan minimalis</li>
-                <li>Responsif di semua perangkat</li>
-                <li>Hasil yang akurat dan mudah dipahami</li>
-            </ul>
+            <h2>Keunggulan Fitur</h2>
+            <ol>
+                <li>Menghitung Berat Badan</li>
+                <li>Menentukan Kategori Berat Badan Ideal atau Tidak </li>
+                <li>Mempersiapkan Program Penurunan Berat Badan</li>
+            </ol>
+            <br>
+            <p>
+                Kalkulator akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. Indeks Massa Tubuh (atau BMI) dihitung sebagai berat badan Anda (dalam kilogram) dibagi dengan kuadrat tinggi badan Anda (dalam meter) atau BMI = Kg/M<sup>2</sup>.
+            </p>
+            <p> Bagaimana denganmu? Yuk, hitung sekarang di kalkulator BMI.</p>
         </aside>
 
         <!-- Formulir Pengisian -->
         <section class="form-section">
             <h2>Isi Form untuk Menghitung BMI</h2>
             <form id="bmiform">
-                <fieldset>
-                    <legend>Jenis Kelamin:</legend>
-                    <div class="gender-selection">
-                        <div class="gender-option">
-                            <input type="radio" id="male" name="gender" value="male" required>
-                            <label for="male" class="gender-label">Laki-laki</label>
-                        </div>
-                        <div class="gender-option">
-                            <input type="radio" id="female" name="gender" value="female" required>
-                            <label for="female" class="gender-label">Perempuan</label>
-                        </div>
-                    </div>
-                </fieldset>
+                <!-- Menghapus legend dan menggantikan radio dengan button -->
+                <label>Pilih Jenis Kelamin:</label>
+                <div class="gender-selection">
+                    <button type="button" class="gender-option" id="maleBtn">Laki-laki</button>
+                    <button type="button" class="gender-option" id="femaleBtn">Perempuan</button>
+                </div>
                 
                 <label for="age">Usia (tahun):</label>
                 <input type="number" id="age" name="age" required>
-
+            
                 <label for="weight">Berat Badan (kg):</label>
                 <input type="number" id="weight" name="weight" required>
-
+            
                 <label for="height">Tinggi Badan (cm):</label>
                 <input type="number" id="height" name="height" required>
-
+            
                 <button type="submit">Hitung BMI</button>
                 <button type="button" id="resetbtn">Reset</button>
             </form>
+                        
         </section>
-
-        <!-- Hasil Kalkulasi BMI -->
-        <section class="result-section" id="resultsection">
+         <!-- Hasil Kalkulasi BMI -->
+         <section class="result-section" id="resultsection">
             <h2>Hasil Kalkulasi BMI</h2>
             <p id="genderresult"></p> <!-- Menampilkan jenis kelamin -->
             <p id="bmresult"></p>
@@ -76,8 +74,6 @@
             <p id="diseaseInfo"></p> <!-- Menampilkan penyakit yang dapat muncul -->
             <p id="solution"></p>
         </section>
-
-
     </main>
 
     <footer>
